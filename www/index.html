@@ -1,0 +1,1316 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>SME BHC Calculator</title>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/wbook.js" type="text/javascript"></script>
+		<script src="js/pv.js" type="text/javascript"></script>
+		<script src="js/controller.js" type="text/javascript"></script>
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+    </head>
+<body>
+	<div id="input">
+		<div id="header" class="center">
+			<p>BHC Calculator</p>
+		</div>
+		<div id="subheader" class="center">
+			<p>Information</p>
+		</div>
+		<div class="body_content">
+			<div class="x_row tabcontent">
+				<div class="col25">
+					<button onclick="gonext(1)" id="tab1" class="button">1</button>
+				</div>
+				<div class="col25">
+					<button onclick="gonext(2)" id="tab2" class="button col25 borderright center">2</button>
+				</div>
+				<div class="col25">
+					<button onclick="gonext(3)" id="tab3" class="button col25 borderright center">3</button>
+				</div>
+				<div class="col25">
+					<button onclick="gonext(4)" id="tab4" class="button col25 center">4</button>
+				</div>
+			</div>
+			<!-------------------------------Info1----------------------------------------->
+			<div id="info_1" class="bodyelement">
+				<div class="x_row yellow font15 center">
+					<span>Let's Check No-Go Parameters</span>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Industry</p>
+					</div>
+					<select id='1_6_3' class="x_input">
+						<option value='Select Industry' selected>Select Industry</option>
+						<option value='Aerospace_and_Defense'>Aerospace_and_Defense</option>
+						<option value='Agriculture_Primary' >Agriculture_Primary</option>
+						<option value='Automotive_and_Other_Vehicles' >Automotive_and_Other_Vehicles</option>
+						<option value='Aviation'>Aviation</option>
+						<option value='Chemicals'>Chemicals</option>
+						<option value='Computers_and_Software' >Computers_and_Software</option>
+						<option value='Construction_and_Real_Estate' >Construction_and_Real_Estate</option>
+						<option value='Consumer_Durables' >Consumer_Durables</option>
+						<option value='Consumer_Non_Durables' >Consumer_Non_Durables</option>
+						<option value='Electonics_and_Engineering' >Electonics_and_Engineering</option>
+						<option value='FMCG' >FMCG</option>
+						<option value='Food_and_Beverage' >Food_and_Beverage</option>
+						<option value='Gems_and_Jewellery' >Gems_and_Jewellery</option>
+						<option value='Health_Care' >Health_Care</option>
+						<option value='Home_Furnishings_and_Fittings' >Home_Furnishings_and_Fittings</option>
+						<option value='Media' >Media</option>
+						<option value='Oil_Petroleum_and_Natural_Gas' >Oil_Petroleum_and_Natural_Gas</option>
+						<option value='Paper_Packaging_and_Publishing' >Paper_Packaging_and_Publishing</option>
+						<option value='Pharmaceuticals' >Pharmaceuticals</option>
+						<option value='Power_and_Utilities' >Power_and_Utilities</option>
+						<option value='Retailers' >Retailers</option>
+						<option value='Specialty_and_Misc_Services' >Specialty_and_Misc_Services</option>
+						<option value='Steel_Metals_and_Mining' >Steel_Metals_and_Mining</option>
+						<option value='Telecom' >Telecom</option>
+						<option value='Textiles' >Textiles</option>
+						<option value='Tobacco' >Tobacco</option>
+						<option value='Tourism_and_Hospitality' >Tourism_and_Hospitality</option>
+						<option value='Transportation_and_Related' >Transportation_and_Related</option>
+					</select>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Segment</p>
+					</div>
+					<select id='1_7_3' class="x_input">
+						<option value='Select Segment' selected>Select Segment</option>
+						<option value='Aerospace & Defense equipment'>Aerospace & Defense equipment</option>
+					</select>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Business Type</p>
+					</div>
+					<select id='1_8_3' class="x_input">
+						<option value='Manufacturer'  selected >Manufacturer</option>
+						<option value='Trader' >Trader</option>
+						<option value='Service' >Service</option>
+					</select>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Location</p>
+					</div>
+					<input type="text" id='1_9_3' class="x_input" onkeypress="keypress(event,'1_9_3')" placeholder="Enter location">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Geo limit norm<a onclick="popupmodal('infoModal');"><img class="right" src="images/info_icon.png" alt="iconImage"/></a></p>
+					</div>
+					<select id='1_10_3' class="x_input">
+						<option value='Met'  selected >Met</option>
+						<option value='Not Met' >Not Met</option>
+					</select>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Property in Magma loc<a onclick="popupmodal('propertyModal');"><img class="right" src="images/info_icon.png" alt="iconImage"/></a></p>
+					</div>
+					<select id='1_11_3' class="x_input">
+						<option value='Yes'  selected >Yes</option>
+						<option value='No' >No</option>
+					</select>
+				</div>
+				<div class="center">
+					<button class="button" onclick="gonext(2);">NEXT</button>
+				</div>
+			</div>
+			<!-------------------------------Info2----------------------------------------->
+			<div id="info_2" class="bodyelement">
+				<div class="x_row yellow font15 center">
+					<span id="checknogo">Lets move forward</span>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Name of person contacted</p>
+					</div>
+					<input class="x_input" type='text' id='username' onkeypress="keypress(event,'username')" placeholder="Enter your full name" maxlength="20">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Contact number</p>
+					</div>
+					<input class="x_input" type='number' id='usermobile' placeholder="Enter your mobile number" maxlength="10">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Business Stability(in yrs)<a onclick="popupmodal('businessModal');"><img class="right" src="images/info_icon.png" alt="iconImage"/></a></p>
+					</div>
+					<input class="x_input" type='tel' placeholder="Business Stability(in yrs)" id='1_12_3'>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>No of USL in last 6m</p>
+					</div>
+					<input class="x_input" type='tel' id='1_13_3' placeholder="No of USL in last 6m">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Annual banking credits (in lacs)</p>
+					</div>
+					<input class="x_input" type='tel' id='1_14_3' placeholder="Annual banking credits (in lacs)">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>CC / OD agnst property' (in lacs)</p>
+					</div>
+					<input class="x_input" type='tel' id='1_15_3' placeholder="CC / OD agnst property' (in lacs)">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Monthly Obligation (in lacs)</p>
+					</div>
+					<input class="x_input" type='text' id='1_16_3' onkeypress="keypress(event,'1_16_3')" placeholder="Monthly Obligation (in lacs)">
+				</div>
+				<div class="center">
+					<button class="button" onclick="gonext(3);">NEXT</button>
+				</div>
+				
+			</div>
+			<!-------------------------------Info3----------------------------------------->
+			<div id="info_3" class="bodyelement">
+				<div class="x_row yellow font15 center">
+					<span id="checknogo">Let's take the requirement</span>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Existing exposure (POS) in lacs</p>
+					</div>
+					<input class="x_input" type='tel' id='1_17_3' placeholder="Enter Existing exposure (POS) in lacs">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Fresh Loan Amt (Rs lacs)</p>
+					</div>
+					<input class="x_input" type='tel' id='1_18_3' placeholder="Enter Fresh Loan Amt (Rs lacs)">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Tenure (months)</p>
+					</div>
+					<select class="x_input" id='1_19_3'>
+						<option value='12' selected >12</option><option value='18' >18</option><option value='24' >24</option><option value='30' >30</option><option value='36' >36</option>
+					</select>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>IRR</p>
+					</div>
+					<input class="x_input" type='text' id='1_20_3' onkeypress="keypress(event,'1_20_3')" placeholder="Enter IRR" maxlength="5">
+				</div>
+				<div class="center">
+					<button class="button" onclick="gonext(4);">NEXT</button>
+				</div>
+			</div>
+			<!-------------------------------Info4----------------------------------------->
+			<div id="info_4" class="bodyelement">
+				<div id="show3">
+					<div class="x_row">
+						<div class="x_lbl">
+							<p>Inc from Biz as per ITR (PY) -in lacs</p>
+						</div>
+						<input class="x_input" type='tel' id='1_21_3' placeholder="Enter Inc from Biz as per ITR (PY) -in lacs" >
+					</div>
+					<div class="x_row">
+						<div class="x_lbl">
+							<p>Inc from Biz as per ITR (CY)-in lacs</p>
+						</div>
+						<input class="x_input" type='tel' id='1_22_3' placeholder="Enter Inc from Biz as per ITR (CY)-in lacs">
+					</div>
+					<div class="x_row">
+						<div class="x_lbl">
+							<p>ABB (latest 3 months) in lacs</p>
+						</div>
+						<input class="x_input" type='text' id='1_23_3' onkeypress="keypress(event,'1_23_3')" placeholder="Enter ABB (latest 3 months) in lacs">
+					</div>
+				</div>
+				<div id="show6">
+					<div class="x_row">
+						<div class="x_lbl">
+							<p>Latest Audited T/o (in lacs)</p>
+						</div>
+						<input class="x_input" type='tel' id='1_24_3' placeholder="Enter Latest Audited T/o (in lacs)">
+					</div>
+					<div class="x_row">
+						<div class="x_lbl">
+							<p>Annualized VAT based t/o (in lacs)</p>
+						</div>
+						<input class="x_input" type='text' id='1_25_3' onkeypress="keypress(event,'1_25_3')" placeholder="Enter Fresh Loan Amt (Rs lacs) Annualized VAT based t/o (in lacs)">
+					</div>
+					<div class="x_row">
+						<div class="x_lbl">
+							<p>PBDIT margin % (Operating margins)</p>
+						</div>
+						<span class="x_input inlineblock" onclick="openmodel()" id='1_26_3' data-fmt='0%' placeholder="Enter PBDIT margin"></span>
+					</div>
+				</div>
+				
+				<div class="center" id="shownext">
+					<button class="button font35" onclick="gonext(5);" >SUBMIT</button>
+				</div>
+				
+			</div>
+		</div>
+	</div><!--End of input page-->
+	
+	<div id="output">
+		<div id="header" class="center">
+			<p>BHC Calculator<a onclick="showinput();"><img src="images/Back.png" alt="backbutton" class="left"/></a></p>
+		</div>
+		<div id="subheader" class="center zeromrgn">
+			<p>No Go Parameters</p>
+		</div>
+		<div class="body_content outputcontent">
+		<div class="x_row center zeromrgn">
+			<div class="col25">
+				<p>Parameter</p>
+			</div>
+			<div class="col25">
+				<p>Actual</p>
+			</div>
+			<div class="col25">
+				<p>Income</p>
+			</div>
+			<div class="col25">
+				<p>Surrogate</p>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn">
+			<div class="col25 whiteback">
+				<a onclick="popupmodal('industryModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>Industry Profile of app</p>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_31_13'>Non - Toxic</span>
+			</div>
+			<div class="col25 whiteback">
+				<p><span id='1_31_19'>Met</span></p>
+			</div>
+			<div class="col25 whiteback">
+				<p><span id='1_31_14'>Met</span></p>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn">
+			<div class="col25 whiteback">
+				<a onclick="popupmodal('infoModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>Geo limit norms - SME</p>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_32_13'>Met</span>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_32_19'>Met</span>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_32_14'>Met</span>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn">
+			<div class="col25 whiteback">
+				<a onclick="popupmodal('propertyModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>Property ownership</p>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_33_13'>Yes</span>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_33_19'>Met</span>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_33_14'>Met</span>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn">
+			<div class="col25 whiteback">
+				<a onclick="popupmodal('cumulativeModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>Cumulative exposure</p>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_34_13'>500</span>
+			</div>
+			<div class="col25 whiteback">
+				<span value=' - ' id='1_34_19' class="nashow" onclick="nashow()"></span>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_34_14'>Not Met</span>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn">
+			<div class="col25 whiteback">
+				<a onclick="popupmodal('turnoverModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>Minimum turnover</p>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_35_13'data-fmt='0.00'>25</span>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_35_19' class="nashow" onclick="nashow()"></span>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_35_14'>Not Met</span>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn brdrbtm">
+			<div class="col25 whiteback">
+				<a onclick="popupmodal('businessModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>Business continuity</p>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_36_13'>100</span>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_36_19'>Met</span>
+			</div>
+			<div class="col25 whiteback">
+				<span id='1_36_14'>Met</span>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn brdrbtm">
+			<div class="col25 whiteback">
+				<p>NO-GO criterias met?</p>
+			</div>
+			<div class="col25 whiteback">
+				<span>-</span>
+			</div>
+			<div class="col25 whiteback">
+				<span id='incomeprogram'></span><!--1_37_16-->
+			</div>
+			<div class="col25 whiteback">
+				<span id='surrogateprogram'></span><!--1_37_13-->
+			</div>
+		</div>
+		
+		
+		<div id="subheader" class="positioninitial center mrgntop5">
+			<p>ELIGIBILITY</p>
+		</div>
+		<div class="x_row center zeromrgn">
+			<div class="col3">
+				<p>Parameter</p>
+			</div>
+			<div class="col3">
+				<p>Loan Amount</p>
+			</div>
+			<div class="col3">
+				<p>Cumulative Capping</p>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn">
+			<div class="col3 whiteback">
+				<a onclick="popupmodal('bankingModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>Banking Product</p>
+			</div>
+			<div class="col3 whiteback">
+				<span id='1_53_4' data-fmt='0.00'>NA</span>
+			</div>
+			<div class="col3 whiteback">
+				<span id='1_54_4' data-fmt='0.00'></span>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn">
+			<div class="col3 whiteback">
+				<a onclick="popupmodal('ccModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>CC Surrogate</p>
+			</div>
+			<div class="col3 whiteback">
+				<span id='1_53_9' data-fmt='0.00'>NA</span>
+			</div>
+			<div class="col3 whiteback">
+				<span id='1_54_9' data-fmt='0.00'></span>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn">
+			<div class="col3 whiteback">
+				<a onclick="popupmodal('itrModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>ITR Surrogate</p>
+			</div>
+			<div class="col3 whiteback">
+				<span id='1_53_14' data-fmt='0.00'>Not Eligible</span>
+			</div>
+			<div class="col3 whiteback">
+				<span id='1_54_14' data-fmt='0.00'>Not Eligible</span>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn">
+			<div class="col3 whiteback">
+				<a onclick="popupmodal('abbModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>ABB Surrogate</p>
+			</div>
+			<div class="col3 whiteback">
+				<span id='1_53_19' data-fmt='0.00'>NA</span>
+			</div>
+			<div class="col3 whiteback">
+				<span id='1_54_19' data-fmt='0.00'></span>
+			</div>
+		</div>
+		<div class="x_row center zeromrgn">
+			<div class="col3 whiteback">
+				<a onclick="popupmodal('dscrModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>DSCR (RDSCR VAT/ Banking Based)</p>
+			</div>
+			<div class="col3 whiteback">
+				<span id='1_73_4'>0</span>
+				/<span id='1_74_4'>0</span>
+			</div>
+			<div class="col3 whiteback">
+				NA
+			</div>
+		</div>
+		<div class="x_row center zeromrgn brdrbtm">
+			<div class="col3 whiteback">
+				<a onclick="popupmodal('outputturnoverModal');"><img class="left" src="images/info_icon.png" alt="iconImage"/></a><p>Turnover Product</p>
+			</div>
+			<div class="col3 whiteback">
+				<span id='1_73_19' data-fmt='0.00'>LA &lt; min tickt size</span>
+			</div>
+			<div class="col3 whiteback">
+				<span id='1_74_19' data-fmt='0.00'></span>
+			</div>
+		</div>
+		</div>
+	</div><!--End of output page-->
+	
+	<div id="infoModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">Geo Limit norm</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<span><u>Income products</u><br/><br/>- 75 kms for a manned Sme location<br/><br/>- 50 Kms form unmanned SME location<br/><br/>
+				<u>Surrogate products</u><br/><br/>- 40 Kms from SME location</span>
+			</div>
+		</div>
+	</div>
+	
+	<!--Modal Popup-->
+	<div id="propertyModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">Property in Magma loc</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<span>- Required with min 1 year vintage of a constructed property only within city limits of Magma location.<br/><br/>
+					  - Owner of property to compulsory join as co applicant.<br/><br/>
+					  - Acceptable owners are Self, Spouse, Father, Mother, Son, firm or company or its partners or directors only.<br/><br/>
+					  - Residence must not be at negative / community dominated area (To be confirmed by FI)
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="businessModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">Business Stability(in yrs)</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<span>- 3 years / 5 years (for LA > 35 lacs)<br/><br/>
+					  - (Certificate should have been issued at a address in same city)<br/><br/>
+					  - No deviation allowed except when it is on account of change in constitution
+				</span>
+			</div>
+		</div>
+	</div>
+	
+	<div id="industryModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">Industry Profile of app</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<span>No Negative industry profile allowed</span>
+			</div>
+		</div>
+	</div>
+	<div id="cumulativeModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">Cumulative exposure</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<span><u>Surrogate products</u><br/>
+						10 lakhs for ITR and 15 lakhs for other products<br/><br/>
+						<u>Income Products</u><br/><br/>
+						125 lakhs in DSCR product and 50 lakhs in turnover product
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="turnoverModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">Minimum turnover</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<span><u>Surrogate: </u> Annualized banking credits in last 6 months > 50 lakhs for CAT A locations and > 35 lakhs for CAT B & C Locations<br/><br/>
+					  <u>Income :</u> Minimum turnover to be more than 100 lakhs (audited financials)
+				</span>
+			</div>
+		</div>
+	</div>
+	<!-- Trigger/Open The Modal -->
+	<div id="alertModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">BHC Calculator</span>
+				<!-- <span class="close">&times;</span> -->
+			</div>
+			<div class="modal_content">
+				<div class="x_row center zeromrgn">
+					<span id="alert1">Let's Check No-Go Parameters</span>
+				</div>
+				<div class="x_row center zeromrgn">
+					<span id="alert"></span>
+				</div>
+				<div class="x_row zeromrgn center">
+					<button id="alertok" class="button close zeromrgn">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content zeropadding">
+				<!-- <span class="close">&times;</span> -->
+			<div class="pop_row">
+				<div class="x_row zeromrgn center">
+					<p class="pop_content zeropadding">"Do you have financial details"</p>
+				</div>
+				<div class="x_row zeromrgn center">
+					<div class="pop_col">
+						<button id="pop_btnl" class="button zeromrgn left" onclick="showfinance();">YES</button>
+						<button id="pop_btnr" class="button right" onclick="showthree();">NO</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+	<!--PBDIT Modal-->
+	<div id="pbditModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">PBDIT Calculation</span>
+				<span class="closepbdit right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>PAT</p>
+					</div>
+					<input class="x_input" type='tel' id='2_1_1' placeholder="Enter PAT value in lacs">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Remuneration to Proprietor's /Directors' / Partner's</p>
+					</div>
+					<input class="x_input" type='tel' id='2_2_1' placeholder="Enter Remuneration value in lacs">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Interest on capital paid to Proprietor's /Directors' / Partner's</p>
+					</div>
+					<input class="x_input" type='tel' id='2_3_1' placeholder="Enter Interest on capital value in lacs">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Tax</p>
+					</div>
+					<input class="x_input" type='tel' id='2_4_1' placeholder="Enter Tax in lacs">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>PBT</p>
+					</div>
+					<span class="x_input inlineblock" id='2_5_1' data-fmt='0.00'></span>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Depreciation</p>
+					</div>
+					<input class="x_input" type='tel' id='2_6_1' placeholder="Enter Depreciation value in lacs">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Interest</p>
+					</div>
+					<input class="x_input" type='text' id='2_7_1' onkeypress="keypress(event,'2_7_1')" placeholder="Enter Interest in lacs">
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>PBDIT</p>
+					</div>
+					<span class="x_input inlineblock" id='2_8_1' data-fmt='0.00'></span>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>Turnover</p>
+					</div>
+					<span class="x_input inlineblock" id='2_10_1' data-fmt='0.00'></span>
+				</div>
+				<div class="x_row">
+					<div class="x_lbl">
+						<p>PBDIT margin</p>
+					</div>
+					<span class="x_input inlineblock" id='2_11_1' data-fmt='0.00'></span>
+				</div>
+				<div class="center">
+					<button class="button font30" onclick="calculatepbdit();">Calculate</button>
+				</div>
+			</div>
+		</div>
+	</div><!--End of PBDIT Modal-->
+	
+	<!--Banking Product Modal-->
+	<div id="bankingModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">Banking Product</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Annualized banking credits</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_42_4' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback  bold">
+						<span >Industry Margins</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_43_4' data-fmt='0.00%'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Monthly Income</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_44_4' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span data-fmt='0%'>Monthly Imputed Inc</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_45_4' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Existing monthly obligation</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_46_4' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Eligible EMI</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_47_4' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Min tenure</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_48_4' data-fmt='0'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Max tenure</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_49_4' data-fmt='0'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Eligible LA</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_50_4' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Min Ticket size</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_51_4' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Max Ticket size</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_52_4' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<!-- <div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span class='align1 valign1 fbold'>Tentative Loan Amount</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_53_4' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Loan amount after Cum Loan capping</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_54_4' data-fmt='0.00'></span>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div><!--Emd of Banking Product Modal-->
+	
+	<!--CC Modal-->
+	<div id="ccModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">CC SURROGATE</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Avg CC Limit of last 3 months</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_42_9' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Minimum CC Limit</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_43_9' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Maximum CC Limit</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_44_9' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Avg CC limit after min max cap</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_45_9' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Eligible LA</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_46_9' data-fmt='0.00'>NA</span>
+					</div>
+				</div><div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Min Ticket size </span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_47_9' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Max Ticket size</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_48_9' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Min tenure</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_50_9' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Max tenure</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_51_9' data-fmt='0.00'>NA</span>
+					</div>
+				</div><div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >EMI as per eligible LA</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_52_9' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<!-- <div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Tentative Loan Amt (in lacs)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_53_9' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Loan amount after Cum Loan capping</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_54_9' data-fmt='0.00'></span>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div><!--End of CC Modal-->
+	
+	<!--ITR Modal-->
+	<div id="itrModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">ITR SURROGATE</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Average of last 2 years income</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_42_14' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Multiplier applicable as per nature of business</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_43_14' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Imputed monthly income</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_44_14' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Existing monthly obligation</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_45_14' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Eligible EMI</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_46_14' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Min tenure</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_47_14' data-fmt='0'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Max tenure</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_48_14' data-fmt='0'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Eligible LA in lacs</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_49_14' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Min Ticket size (in lacs)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_50_14' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Max Ticket size (in lacs)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_51_14' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<!-- <div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Tentative Loan Amt (in lacs)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_53_14' data-fmt='0.00'>Not Eligible</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Loan amount after Cum Loan capping</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_54_14' data-fmt='0.00'>Not Eligible</span>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div><!--End of ITR Modal-->
+	
+	<!--ABB product Modal-->
+	<div id="abbModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">ABB PRODUCT</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >ABB of latest 3 months</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_42_19' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Imputed Monthly Income</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_43_19' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Monthly Obligations from other accts</span>
+					</div>
+					<div class="col2 whiteback">
+						<span type='tel' id='1_44_19'></span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Eligible EMI</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_45_19' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Min tenure</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_46_19' data-fmt='0'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Max tenure</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_47_19' data-fmt='0'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Eligible Loan amount</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_48_19' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Min Ticket size (in lacs)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_49_19' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Max Ticket size (in lacs)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_50_19' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<!-- <div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Tentative Loan Amt (in lacs)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_53_19' data-fmt='0.00'>NA</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Loan amount after Cum Loan capping</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_54_19' data-fmt='0.00'></span>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div><!--End of ABB product Modal-->
+	
+	<!--DSCR Modal-->
+	<div id="dscrModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">DSCR</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>PBDIT / Operating profit (in lacs)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_68_4' >0</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Total tentative annual obligation (in lacs)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_69_4' >13368.46</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Tentative DSCR</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_70_4' >0</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Tentative Running PBDIT(VAT)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_71_4' >0</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Tentative Running PBDIT(Banking)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_72_4' >0</span>
+					</div>
+				</div>
+				<!-- <div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Tentative RDSCR (VAT Based)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_73_4' >0</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Tentative RDSCR (Banking Based)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_74_4' >0</span>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div><!--End of DSCR Modal-->
+	
+	<!--Turn over output Modal-->
+	<div id="outputturnoverModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal_header">
+				<span class="left">TURNOVER</span>
+				<span class="close right">&times;</span>
+			</div>
+			<div class="modal_content">
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Running year&rsquo;s turnover </span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_60_19' data-fmt='0.00'>20000</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Eligible Turnover (running yr t/o capped to 140% latest audited yt t/o)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_61_19' data-fmt='0.00'>20000</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Industry margin as per list</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_62_19' data-fmt='0.00%'>0.091251</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Eligible Margin(capped at 3X of avg 2 yrs EBIDTA margin)</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_63_19' data-fmt='0.00%'>0.091251</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Monthly Imputed Income</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_64_19' data-fmt='0.00'>152.085</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >70% DIR</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_65_19' data-fmt='0.00'>106.4595</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Existing monthly obligation</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_66_19' data-fmt='0.00'>1000</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Disposable Income / Eligible EMI</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_67_19' data-fmt='0.00'>-893.5405</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Min Tenure</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_68_19' >12</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Max Tenure</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_69_19' >36</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Eligible LA</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_70_19' data-fmt='0.00'></span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Min Ticket size</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_71_19' >5</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span >Max Ticket size</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_72_19' >35</span>
+					</div>
+				</div>
+				<!-- <div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Tentative Loan Amount</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_73_19' data-fmt='0.00'>LA &lt; min tickt size</span>
+					</div>
+				</div>
+				<div class="x_row zeromrgn brdrbtm">
+					<div class="col2 whiteback bold">
+						<span>Loan Amount after Cum Loan</span>
+					</div>
+					<div class="col2 whiteback">
+						<span id='1_74_19' data-fmt='0.00'></span>
+					</div>
+				</div> -->
+			</div>
+		</div>
+	</div><!--End of Turn over output Modal-->
+</body>
+</html>
+
+<script type='text/javascript'>
+    (function(){
+		//$("#1_7_3 option[value='undefined']").remove();
+    })();
+</script>
